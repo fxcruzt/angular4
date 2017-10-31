@@ -10,7 +10,7 @@ import { Project } from '../models/project.model';
 
  @Injectable()
  export class ProjectListService{
-    projects: Array<Project> = [];
+    
 
     constructor(private _http: Http){
 
@@ -24,22 +24,28 @@ import { Project } from '../models/project.model';
         //  HTTP Request 
         //  Open  connection --- > Server 
         //  UI <------ Response
-
-        
-
         const url = 'http://localhost:8085/projects';
         const headers = new Headers({
             'Content-Type': 'application/json',
-            'Api-Token': 'jJHGtk3IoZ84CmKlDz5N206w46yaj6v4mk0vXdTDl5w80iqnk0skp9Jp6NQ3'            
+            'Api-Token': 'jJHGtk3IoZ84CmKlDz5N206w46yaj6v4mk0vXdTDl5w80iqnk0skp9Jp6NQ3'
           });
         const options = new RequestOptions({headers: headers});
 
-        return this._http.get(url, options).map((response)=>{ 
+        return this._http.get(url, options).map((response)=>{
+            return response.json();
+        });        
+    }
+
+    deleteProject(project:Project){
+        const url =`http://localhost:8085/projects/${project.id}`;
+        const headers = new Headers({'Content-Type': 'application/json'});
+        const options = new RequestOptions({
+            headers: headers
+        });
+        return this._http.delete(url, options).map((response)=>{
             console.log(response);
             return response.json();
-        });
-
-
-        
+        })
     }
+
  }
