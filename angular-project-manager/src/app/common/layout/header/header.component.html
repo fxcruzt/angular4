@@ -28,12 +28,15 @@
               <ul class="nav navbar-nav pull-right">
                 <li class="leaf"
                     >
-                  <a                    
+                  <a
+                    routerLink = "/proyectos"                    
                     title="Cursos">Proyectos</a>
                 </li>
                 <li class="leaf"                    
                     >
                   <a 
+                   *ngIf="_authService.isLoggendIn()"
+                    routerLink="/issues"
                      title="Iniciar sesión">Issues</a>
                 </li>
                 <li class="leaf">
