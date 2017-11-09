@@ -29,13 +29,14 @@
                 <li class="leaf"
                     >
                   <a
+                  *ngIf="_authService.isLoggedIn()"
                     routerLink = "/proyectos"                    
                     title="Cursos">Proyectos</a>
                 </li>
                 <li class="leaf"                    
                     >
                   <a 
-                   *ngIf="_authService.isLoggendIn()"
+                   *ngIf="_authService.isLoggedIn()"
                     routerLink="/issues"
                      title="Iniciar sesión">Issues</a>
                 </li>
