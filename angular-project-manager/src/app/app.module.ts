@@ -16,6 +16,7 @@ import { Ng2Webstorage } from 'ngx-webstorage';
 import { HomeComponent } from './auth/home/home.component';
 import { AuthenticationService } from './common/services/authentication.service';
 import { HttpService} from './common/services/http.service';
+//import { AuthGuard } from "./common/guards/auth.guard";
 
 @NgModule({
   declarations: [
